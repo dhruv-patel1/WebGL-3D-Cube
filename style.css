@@ -1,0 +1,34 @@
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(221, 221, 221);
+}
+
+canvas{
+    margin-top: 80px;
+}
+
+.ui{
+    height: 250px;
+    width: 100%;
+    background-color: rgb(167, 167, 167);
+    margin-top: 40px;
+}
+
+.controls{
+    display: flex;
+    flex-direction: row;
+    height: 70%;
+    width: 100%;
+}
+
+.rotation{
+    width: 50%;
+}
+
+.camera{
+    width: 50%;
+}

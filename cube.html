@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="style.css">
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+    #version 300 es
+
+    in  vec4 aPosition;
+    in  vec4 aColor;
+    out vec4 vColor;
+
+    uniform mat4 uMatrix;//this matrix will represent the model, view and projection (if enabled) transforms
+
+    void main()
+    {
+        vColor = aColor;
+        gl_Position = uMatrix * aPosition;
+    }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+    #version 300 es
+
+    precision mediump float;
+
+    in vec4 vColor;
+    out vec4 fColor;
+
+    void
+    main()
+    {
+        fColor = vColor;
+    }
+    </script>
+
+    <script type="text/javascript" src="./Common/initShaders.js"></script>
+    <script type="text/javascript" src="./Common/MVnew.js"></script>
+    <script type="text/javascript" src="cube.js"></script>
+
+    <body>
+        <canvas id="gl-canvas" width="600"" height="600">
+        Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+        <div class="ui">
+            <div class="controls">
+                <div class="rotation">
+                    <p>Rotation Controls:</p>
+                    <p>X-axis: up=ArrowLeft down=ArrowRight</p>
+                    <p>Y-axis: up=ArrowUp down=ArrowDown</p>
+                    <p>Z-axis: up=PageUp down=PageDown</p>
+                </div>
+                <div class="camera">
+                    <p>Camera Controls</p>
+                    <p>Camera X: left=a right=d</p>
+                    <p>Camera Y: up=w down=s</p>
+                    <p>Camera Z: front=z back=x</p>
+                </div>
+            </div>
+            <p id="camera-text"></p>
+            <input type="checkbox" id="use-perspective">
+                <label for="use-perspective">Use perspective</label>
+            </input>
+            <input type="checkbox" id="use-projection">
+                <label for="use-perspective">Use projection</label>
+            </input>
+        </div>
+    </body>
+</html>
